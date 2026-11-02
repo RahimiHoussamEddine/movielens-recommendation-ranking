@@ -52,18 +52,24 @@ else:
         st.error(str(error))
     else:
         st.subheader(f"{strategy} recommendations")
-        st.dataframe(
-            recommendations.rename(
-                columns={
-                    "movie_id": "Movie ID",
-                    "title": "Title",
-                    "genres": "Genres",
-                    "score": "Score",
-                }
-            ).style.format({"Score": "{:.4f}"}),
-            use_container_width=True,
-            hide_index=True,
+        display = recommendations.rename(
+            columns={
+                "movie_id": "Movie ID",
+                "title": "Title",
+                "genres": "Genres",
+                "score": "Score",
+            }
         )
+        display["Score"] = display["Score"].map(lambda score: f"{score:.4f}")
+        try:
+            st.dataframe(display, use_container_width=True, hide_index=True)
+        except ImportError as error:
+            message = str(error).lower()
+            if "pyarrow" not in message or "numpy" not in message:
+                raise
+            st.caption("Recommendations are shown in a compact list view.")
+            for rank, row in enumerate(display.itertuples(index=False), start=1):
+                st.markdown(f"**{rank}. {row.Title}**  \n{row.Genres} · score `{row.Score}`")
         st.caption(
             "Offline recommender scores are not calibrated probabilities or guarantees of preference."
         )
