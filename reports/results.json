@@ -1,0 +1,296 @@
+{
+  "bootstrap_replicates": 1000,
+  "catalog_size": 3883,
+  "data_audit": {
+    "archive_sha256": "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20",
+    "demographic_file_used": false,
+    "duplicate_user_movie_pairs": 0,
+    "movie_count": 3883,
+    "movie_genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children's",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Fantasy",
+      "Film-Noir",
+      "Horror",
+      "Musical",
+      "Mystery",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "War",
+      "Western"
+    ],
+    "positive_rating_share": 0.5751607913945985,
+    "positive_threshold": 4.0,
+    "rating_count": 1000209,
+    "rating_counts": {
+      "1": 56174,
+      "2": 107557,
+      "3": 261197,
+      "4": 348971,
+      "5": 226310
+    },
+    "ratings_per_user_min": 20,
+    "timestamp_end_utc": "2003-02-28T17:49:50+00:00",
+    "timestamp_start_utc": "2000-04-25T23:05:32+00:00",
+    "user_count": 6040
+  },
+  "evaluation_protocol": "Full catalog excluding each user's development history; positive future ratings are relevant.",
+  "seed": 2026,
+  "selected_configuration": {
+    "genre_model": "user profile of liked training genres; binary genre features",
+    "item_similarity": "binary positive co-occurrence cosine with support shrinkage",
+    "item_similarity_shrinkage": 5.0,
+    "matrix_factorization": "TruncatedSVD on binary positive user-item matrix",
+    "positive_rating_threshold": 4.0,
+    "positive_training_interactions": 522256,
+    "svd_components": 32,
+    "svd_random_state": 2026
+  },
+  "split": {
+    "rows": {
+      "test": 102759,
+      "train": 794691,
+      "validation": 102759
+    },
+    "temporal_order_check": true,
+    "users": {
+      "test": 6040,
+      "train": 6040,
+      "validation": 6040
+    }
+  },
+  "study": "MovieLens 1M chronological top-k recommendation",
+  "test": {
+    "Genre profile": {
+      "activity_segments": [
+        {
+          "activity_segment": "Lower activity",
+          "mean_train_positive_interactions": 20.26996421813965,
+          "ndcg@10": 0.015465707843789997,
+          "recall@10": 0.02225679180856924,
+          "users": 1941
+        },
+        {
+          "activity_segment": "Mid activity",
+          "mean_train_positive_interactions": 57.260826110839844,
+          "ndcg@10": 0.015214528500403073,
+          "recall@10": 0.01869952519853975,
+          "users": 1940
+        },
+        {
+          "activity_segment": "Higher activity",
+          "mean_train_positive_interactions": 189.01031494140625,
+          "ndcg@10": 0.013997076462630424,
+          "recall@10": 0.009907918391297505,
+          "users": 1940
+        }
+      ],
+      "metrics": {
+        "catalog_coverage@10": 0.1403553953129024,
+        "catalog_coverage@20": 0.21967550862735,
+        "genre_coverage@10": 0.4219969840997156,
+        "genre_diversity@10": 0.24954610859747708,
+        "map@10": 0.005762460839890874,
+        "map@20": 0.005935179822679786,
+        "ndcg@10": 0.014892536085394497,
+        "ndcg@20": 0.01954257237456488,
+        "novelty@10": 12.213315257623092,
+        "precision@10": 0.009654698505411442,
+        "precision@20": 0.008615358185878715,
+        "recall@10": 0.016955655980882525,
+        "recall@20": 0.030708877357524814
+      },
+      "ndcg@10_ci95": [
+        0.01324677480685496,
+        0.016441903064080683
+      ],
+      "ndcg@10_difference_vs_popularity_ci95": [
+        -0.04704129832738088,
+        -0.04008580050915043
+      ]
+    },
+    "Item-item KNN": {
+      "activity_segments": [
+        {
+          "activity_segment": "Lower activity",
+          "mean_train_positive_interactions": 20.26996421813965,
+          "ndcg@10": 0.06896277396679196,
+          "recall@10": 0.09579910758426988,
+          "users": 1941
+        },
+        {
+          "activity_segment": "Mid activity",
+          "mean_train_positive_interactions": 57.260826110839844,
+          "ndcg@10": 0.05943571045270145,
+          "recall@10": 0.0641942747335968,
+          "users": 1940
+        },
+        {
+          "activity_segment": "Higher activity",
+          "mean_train_positive_interactions": 189.01031494140625,
+          "ndcg@10": 0.11190574427889935,
+          "recall@10": 0.055218332399414045,
+          "users": 1940
+        }
+      ],
+      "metrics": {
+        "catalog_coverage@10": 0.08704609837754314,
+        "catalog_coverage@20": 0.11795003862992531,
+        "genre_coverage@10": 0.5529023268243334,
+        "genre_diversity@10": 0.6795876325405539,
+        "map@10": 0.023684021300147438,
+        "map@20": 0.021182626072235356,
+        "ndcg@10": 0.08009949604000151,
+        "ndcg@20": 0.0923458424971097,
+        "novelty@10": 8.38176189380666,
+        "precision@10": 0.05840920803985569,
+        "precision@20": 0.04868579281910324,
+        "recall@10": 0.07174137187065949,
+        "recall@20": 0.11781852886020142
+      },
+      "ndcg@10_ci95": [
+        0.07618078252643158,
+        0.0842691664622853
+      ],
+      "ndcg@10_difference_vs_popularity_ci95": [
+        0.018923572280478917,
+        0.02460684583026387
+      ]
+    },
+    "Popularity": {
+      "activity_segments": [
+        {
+          "activity_segment": "Lower activity",
+          "mean_train_positive_interactions": 20.26996421813965,
+          "ndcg@10": 0.03604330954927959,
+          "recall@10": 0.05233149556951721,
+          "users": 1941
+        },
+        {
+          "activity_segment": "Mid activity",
+          "mean_train_positive_interactions": 57.260826110839844,
+          "ndcg@10": 0.047471101792512946,
+          "recall@10": 0.05092155804593166,
+          "users": 1940
+        },
+        {
+          "activity_segment": "Higher activity",
+          "mean_train_positive_interactions": 189.01031494140625,
+          "ndcg@10": 0.09171700651808404,
+          "recall@10": 0.04472687811754025,
+          "users": 1940
+        }
+      ],
+      "metrics": {
+        "catalog_coverage@10": 0.037342261138295134,
+        "catalog_coverage@20": 0.05742982230234355,
+        "genre_coverage@10": 0.5250243371700166,
+        "genre_diversity@10": 0.6662830219141214,
+        "map@10": 0.01629605168290378,
+        "map@20": 0.01435464953971839,
+        "ndcg@10": 0.058406630125014576,
+        "ndcg@20": 0.06811259367229995,
+        "novelty@10": 8.069212811199215,
+        "precision@10": 0.045542003092252197,
+        "precision@20": 0.03878199622058066,
+        "recall@10": 0.04932716011983653,
+        "recall@20": 0.08624712817401398
+      },
+      "ndcg@10_ci95": [
+        0.05526093694193703,
+        0.06151204382430569
+      ],
+      "ndcg@10_difference_vs_popularity_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "Truncated SVD": {
+      "activity_segments": [
+        {
+          "activity_segment": "Lower activity",
+          "mean_train_positive_interactions": 20.26996421813965,
+          "ndcg@10": 0.09904399929482327,
+          "recall@10": 0.14770471528585902,
+          "users": 1941
+        },
+        {
+          "activity_segment": "Mid activity",
+          "mean_train_positive_interactions": 57.260826110839844,
+          "ndcg@10": 0.06644270125113044,
+          "recall@10": 0.0730140952728007,
+          "users": 1940
+        },
+        {
+          "activity_segment": "Higher activity",
+          "mean_train_positive_interactions": 189.01031494140625,
+          "ndcg@10": 0.11390321379335834,
+          "recall@10": 0.058703157535134415,
+          "users": 1940
+        }
+      ],
+      "metrics": {
+        "catalog_coverage@10": 0.18387844450167395,
+        "catalog_coverage@20": 0.22946175637393768,
+        "genre_coverage@10": 0.5061558724159652,
+        "genre_diversity@10": 0.6534703749113119,
+        "map@10": 0.02901325368660532,
+        "map@20": 0.026676979199763817,
+        "ndcg@10": 0.09313098742785779,
+        "ndcg@20": 0.1125022785289005,
+        "novelty@10": 9.071579140868103,
+        "precision@10": 0.06435320391685277,
+        "precision@20": 0.05541144133310427,
+        "recall@10": 0.09315002968858382,
+        "recall@20": 0.1572222022209494
+      },
+      "ndcg@10_ci95": [
+        0.08911725316000488,
+        0.09715839648148707
+      ],
+      "ndcg@10_difference_vs_popularity_ci95": [
+        0.03042207289693786,
+        0.03885852185504723
+      ]
+    }
+  },
+  "test_positive_users": 5821,
+  "tuning": {
+    "item_similarity": [
+      {
+        "shrinkage": 5.0,
+        "validation_ndcg@10": 0.08782092645161921
+      },
+      {
+        "shrinkage": 20.0,
+        "validation_ndcg@10": 0.08550255993883425
+      },
+      {
+        "shrinkage": 50.0,
+        "validation_ndcg@10": 0.08320373945988482
+      }
+    ],
+    "truncated_svd": [
+      {
+        "components": 16,
+        "validation_ndcg@10": 0.09191328618486179
+      },
+      {
+        "components": 32,
+        "validation_ndcg@10": 0.09302487847090696
+      },
+      {
+        "components": 64,
+        "validation_ndcg@10": 0.08509071568626408
+      }
+    ]
+  },
+  "validation_positive_users": 5845
+}
